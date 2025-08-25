@@ -61,8 +61,8 @@ const Index = () => {
                 </div>
 
                 <Button className="btn-premium" asChild>
-                  <Link to="/about" className="flex items-center gap-2">
-                    Learn More About Us
+                  <Link to="/project-details" className="flex items-center gap-2">
+                    View Project Details
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>

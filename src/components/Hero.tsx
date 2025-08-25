@@ -100,7 +100,7 @@ const Hero = () => {
                   </div>
 
                   <Button className="w-full btn-premium" asChild>
-                    <Link to="/properties/sai-darshan">
+                    <Link to="/project-details">
                       View Project Details
                     </Link>
                   </Button>

@@ -127,11 +127,18 @@ const Properties = () => {
                       </div>
                     </div>
 
-                    <Button className="w-full btn-premium text-lg py-3" asChild>
-                      <Link to="/contact">
-                        Book Site Visit
-                      </Link>
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button className="flex-1 btn-premium text-lg py-3" asChild>
+                        <Link to="/project-details">
+                          View Details
+                        </Link>
+                      </Button>
+                      <Button variant="outline" className="flex-1 text-lg py-3" asChild>
+                        <Link to="/contact">
+                          Book Visit
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
