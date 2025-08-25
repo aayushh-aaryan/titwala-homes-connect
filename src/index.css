@@ -2,41 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* SS Gupta Developers Design System - Premium Real Estate Website
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors */
+    --brand-red: 0 84% 52%;
+    --brand-gold: 45 90% 60%;
+    --brand-cream: 45 25% 96%;
+    --brand-dark: 220 13% 15%;
+    --brand-warm: 30 15% 95%;
+    
+    /* Core System Colors */
+    --background: 45 25% 98%;
+    --foreground: 220 13% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 13% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 13% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 84% 52%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 90% 60%;
+    --secondary-foreground: 220 13% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 25% 96%;
+    --muted-foreground: 220 13% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 30 15% 95%;
+    --accent-foreground: 220 13% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 20% 90%;
+    --input: 45 20% 95%;
+    --ring: 0 84% 52%;
 
     --radius: 0.5rem;
+
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--secondary) / 0.8));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--accent)));
+    --gradient-premium: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+    
+    /* Shadows */
+    --shadow-premium: 0 20px 60px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 10px 30px hsl(var(--foreground) / 0.1);
+    --shadow-hover: 0 15px 40px hsl(var(--primary) / 0.2);
 
     --sidebar-background: 0 0% 98%;
 
@@ -102,4 +120,115 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  /* Hero Section Styles */
+  .hero-section {
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Animated Elements */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Card Effects */
+  .property-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Button Variants */
+  .btn-premium {
+    background: var(--gradient-premium);
+    color: hsl(var(--primary-foreground));
+    border: none;
+    box-shadow: var(--shadow-premium);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 70px hsl(var(--primary) / 0.25);
+  }
+  
+  /* Interactive Elements */
+  .interactive-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .interactive-hover:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Parallax Effect */
+  .parallax {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-premium);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+  
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

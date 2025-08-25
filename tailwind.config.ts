@@ -19,6 +19,15 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Brand Colors
+				brand: {
+					red: 'hsl(var(--brand-red))',
+					gold: 'hsl(var(--brand-gold))',
+					cream: 'hsl(var(--brand-cream))',
+					dark: 'hsl(var(--brand-dark))',
+					warm: 'hsl(var(--brand-warm))',
+				},
+				// Core System
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -84,11 +93,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'slide-up': {
+					'from': { transform: 'translateY(50px)', opacity: '0' },
+					'to': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'fade-in': {
+					'from': { opacity: '0' },
+					'to': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'slide-up': 'slide-up 0.8s ease-out',
+				'fade-in': 'fade-in 1s ease-out'
 			}
 		}
 	},
